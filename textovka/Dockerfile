@@ -1,12 +1,12 @@
-FROM alpine 
+FROM python:alpine 
 
 LABEL maintainer="Radovan Jakab <radovan.jakab@t-systems.com>"
 
-ADD python-textovka /python-textovka
+ADD https://github.com/madrade/textadventure/archive/refs/heads/2021.05-tsys.zip /
 
-RUN apk add python3 py3-pip
+RUN unzip 2021.05-tsys.zip -d app
 
-WORKDIR /python-textovka
+WORKDIR /app/textadventure-2021.05-tsys
 
 CMD [ "/usr/bin/env", "python3", "game.py" ]
 
